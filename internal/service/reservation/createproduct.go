@@ -3,8 +3,8 @@ package reservation
 import (
 	"context"
 
-	"reservation/internal/pkg/apperror"
-	inventoryGateway "reservation/internal/gateway/grpc/inventory"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
+	inventoryGateway "github.com/Yoshikrit/reservation/internal/gateway/grpc/inventory"
 )
 
 func (s *reservationService) CreateProduct(ctx context.Context, request *CreateProductRequest) *apperror.AppError {

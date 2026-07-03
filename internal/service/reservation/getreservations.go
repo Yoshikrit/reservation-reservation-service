@@ -4,8 +4,8 @@ import (
 	"context"
 	"math"
 
-	"reservation/internal/entity"
-	"reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/entity"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
 )
 
 func (s *reservationService) GetReservations(ctx context.Context, body *ListReservationBody) (*ListReservationResponse, *apperror.AppError) {

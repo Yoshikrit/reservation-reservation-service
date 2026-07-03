@@ -1,4 +1,4 @@
-module reservation
+module github.com/Yoshikrit/reservation
 
 go 1.26.2
 

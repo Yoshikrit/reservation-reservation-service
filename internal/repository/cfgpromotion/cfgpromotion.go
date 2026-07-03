@@ -3,8 +3,8 @@ package cfgpromotion
 import (
 	"context"
 
-	"reservation/internal/entity"
-	"reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/entity"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
 
 	"gorm.io/gorm"
 )

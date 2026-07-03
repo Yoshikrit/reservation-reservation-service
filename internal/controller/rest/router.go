@@ -1,16 +1,16 @@
 package rest
 
 import (
-	"reservation/config"
-	"reservation/internal/controller/rest/middleware"
-	productCtrl "reservation/internal/controller/rest/v1/product"
-	reservationCtrl "reservation/internal/controller/rest/v1/reservation"
-	inventoryGateway "reservation/internal/gateway/grpc/inventory"
-	inventorypb "reservation/internal/gateway/grpc/inventory/pb"
-	cfgPromotionRepo "reservation/internal/repository/cfgpromotion"
-	outboxRepo "reservation/internal/repository/outbox"
-	reservationRepo "reservation/internal/repository/reservation"
-	reservationSrv "reservation/internal/service/reservation"
+	"github.com/Yoshikrit/reservation/config"
+	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware"
+	productCtrl "github.com/Yoshikrit/reservation/internal/controller/rest/v1/product"
+	reservationCtrl "github.com/Yoshikrit/reservation/internal/controller/rest/v1/reservation"
+	inventoryGateway "github.com/Yoshikrit/reservation/internal/gateway/grpc/inventory"
+	inventorypb "github.com/Yoshikrit/reservation/internal/gateway/grpc/inventory/pb"
+	cfgPromotionRepo "github.com/Yoshikrit/reservation/internal/repository/cfgpromotion"
+	outboxRepo "github.com/Yoshikrit/reservation/internal/repository/outbox"
+	reservationRepo "github.com/Yoshikrit/reservation/internal/repository/reservation"
+	reservationSrv "github.com/Yoshikrit/reservation/internal/service/reservation"
 
 	gormtrm "github.com/avito-tech/go-transaction-manager/drivers/gorm/v2"
 	trm "github.com/avito-tech/go-transaction-manager/trm/v2/manager"

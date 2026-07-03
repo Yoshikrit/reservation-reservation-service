@@ -1,12 +1,12 @@
 package middleware
 
 import (
-	"reservation/internal/controller/rest/middleware/cors"
-	"reservation/internal/controller/rest/middleware/helmet"
-	"reservation/internal/controller/rest/middleware/logger"
-	"reservation/internal/controller/rest/middleware/recover"
-	"reservation/internal/controller/rest/middleware/responsetime"
-	"reservation/internal/controller/rest/middleware/trace"
+	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/cors"
+	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/helmet"
+	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/logger"
+	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/recover"
+	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/responsetime"
+	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/trace"
 
 	"github.com/gofiber/fiber/v3"
 )

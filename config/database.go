@@ -3,7 +3,7 @@ package config
 import (
 	"time"
 
-	"reservation/internal/entity"
+	"github.com/Yoshikrit/reservation/internal/entity"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

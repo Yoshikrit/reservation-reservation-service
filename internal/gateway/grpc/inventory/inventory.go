@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"reservation/internal/gateway/grpc/inventory/pb"
-	"reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/gateway/grpc/inventory/pb"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
 
 	"github.com/sony/gobreaker/v2"
 )

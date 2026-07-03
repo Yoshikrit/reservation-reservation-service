@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"reservation/internal/gateway/grpc/inventory/pb"
-	"reservation/internal/pkg/apperror"
-	"reservation/internal/pkg/grpcutil"
+	"github.com/Yoshikrit/reservation/internal/gateway/grpc/inventory/pb"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/pkg/grpcutil"
 )
 
 func (g *inventoryGateway) CreateProduct(ctx context.Context, request CreateProductRequest) *apperror.AppError {

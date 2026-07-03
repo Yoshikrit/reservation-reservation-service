@@ -5,11 +5,11 @@ import (
 	"errors"
 	"time"
 
-	"reservation/internal/entity"
-	"reservation/internal/pkg/apperror"
-	"reservation/internal/service/constant"
-	"reservation/internal/service/utility"
-	inventoryGateway "reservation/internal/gateway/grpc/inventory"
+	"github.com/Yoshikrit/reservation/internal/entity"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/service/constant"
+	"github.com/Yoshikrit/reservation/internal/service/utility"
+	inventoryGateway "github.com/Yoshikrit/reservation/internal/gateway/grpc/inventory"
 )
 
 func (s *reservationService) CreateReservation(ctx context.Context, request *CreateReservationRequest) (appErr *apperror.AppError) {

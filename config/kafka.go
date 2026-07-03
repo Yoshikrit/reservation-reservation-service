@@ -1,7 +1,7 @@
 package config
 
 import (
-	kafkapkg "reservation/internal/gateway/kafka"
+	kafkapkg "github.com/Yoshikrit/reservation/internal/gateway/kafka"
 )
 
 type KafkaConfig struct {

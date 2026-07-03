@@ -7,12 +7,12 @@ import (
 	"testing"
 	"time"
 
-	"reservation/config"
-	"reservation/internal/controller/rest"
-	ctrlRest "reservation/internal/controller/rest/v1/reservation"
-	"reservation/internal/pkg/apperror"
-	svc "reservation/internal/service/reservation"
-	svcMocks "reservation/internal/service/reservation/mocks"
+	"github.com/Yoshikrit/reservation/config"
+	"github.com/Yoshikrit/reservation/internal/controller/rest"
+	ctrlRest "github.com/Yoshikrit/reservation/internal/controller/rest/v1/reservation"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
+	svc "github.com/Yoshikrit/reservation/internal/service/reservation"
+	svcMocks "github.com/Yoshikrit/reservation/internal/service/reservation/mocks"
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/stretchr/testify/assert"

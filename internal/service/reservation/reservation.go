@@ -3,11 +3,11 @@ package reservation
 import (
 	"context"
 
-	inventoryGateway "reservation/internal/gateway/grpc/inventory"
-	"reservation/internal/pkg/apperror"
-	cfgPromotionRepo "reservation/internal/repository/cfgpromotion"
-	outboxRepo "reservation/internal/repository/outbox"
-	reservationRepo "reservation/internal/repository/reservation"
+	inventoryGateway "github.com/Yoshikrit/reservation/internal/gateway/grpc/inventory"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
+	cfgPromotionRepo "github.com/Yoshikrit/reservation/internal/repository/cfgpromotion"
+	outboxRepo "github.com/Yoshikrit/reservation/internal/repository/outbox"
+	reservationRepo "github.com/Yoshikrit/reservation/internal/repository/reservation"
 
 	"github.com/redis/go-redis/v9"
 )

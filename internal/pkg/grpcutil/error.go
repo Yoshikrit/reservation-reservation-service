@@ -3,7 +3,7 @@ package grpcutil
 import (
 	"errors"
 
-	"reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

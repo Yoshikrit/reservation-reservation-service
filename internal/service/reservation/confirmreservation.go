@@ -3,14 +3,14 @@ package reservation
 import (
 	"context"
 	"errors"
-	"reservation/internal/pkg/json"
+	"github.com/Yoshikrit/reservation/internal/pkg/json"
 	"time"
 
-	"reservation/internal/entity"
-	kafkapkg "reservation/internal/gateway/kafka"
-	"reservation/internal/gateway/kafka/confirmedreservation"
-	"reservation/internal/pkg/apperror"
-	"reservation/internal/service/constant"
+	"github.com/Yoshikrit/reservation/internal/entity"
+	kafkapkg "github.com/Yoshikrit/reservation/internal/gateway/kafka"
+	"github.com/Yoshikrit/reservation/internal/gateway/kafka/confirmedreservation"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/service/constant"
 
 	"github.com/google/uuid"
 )

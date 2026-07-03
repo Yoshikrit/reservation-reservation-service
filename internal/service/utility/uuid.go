@@ -2,7 +2,7 @@ package utility
 
 import (
 	"fmt"
-	"reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
 
 	gonanoid "github.com/matoous/go-nanoid"
 )

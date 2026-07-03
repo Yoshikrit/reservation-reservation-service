@@ -5,8 +5,8 @@ import (
 	"math"
 	"time"
 
-	"reservation/internal/entity"
-	"reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/entity"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
 )
 
 func (s *reservationService) isPromotionDay(ctx context.Context, t time.Time) (bool, *apperror.AppError) {

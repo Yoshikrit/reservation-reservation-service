@@ -1,7 +1,7 @@
 package product
 
 import (
-	reservationSrv "reservation/internal/service/reservation"
+	reservationSrv "github.com/Yoshikrit/reservation/internal/service/reservation"
 
 	"github.com/gofiber/fiber/v3"
 )

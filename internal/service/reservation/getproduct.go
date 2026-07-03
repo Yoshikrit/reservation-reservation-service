@@ -3,7 +3,7 @@ package reservation
 import (
 	"context"
 
-	"reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
 )
 
 func (s *reservationService) GetProduct(ctx context.Context, productID string) (*GetProductResponse, *apperror.AppError) {

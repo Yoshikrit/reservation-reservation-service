@@ -3,7 +3,7 @@ package grpcutil
 import (
 	"context"
 
-	"reservation/internal/entity"
+	"github.com/Yoshikrit/reservation/internal/entity"
 
 	"google.golang.org/grpc/metadata"
 )

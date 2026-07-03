@@ -3,8 +3,8 @@ package mocks
 import (
 	"context"
 
-	"reservation/internal/pkg/apperror"
-	svc "reservation/internal/service/reservation"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
+	svc "github.com/Yoshikrit/reservation/internal/service/reservation"
 
 	"github.com/stretchr/testify/mock"
 )

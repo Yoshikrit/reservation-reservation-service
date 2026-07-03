@@ -1,8 +1,8 @@
 package product
 
 import (
-	"reservation/internal/pkg/apperror"
-	reservationSrv "reservation/internal/service/reservation"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
+	reservationSrv "github.com/Yoshikrit/reservation/internal/service/reservation"
 
 	"github.com/gofiber/fiber/v3"
 )

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"reservation/internal/entity"
+	"github.com/Yoshikrit/reservation/internal/entity"
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/google/uuid"

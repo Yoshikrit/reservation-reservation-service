@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"reservation/internal/entity"
-	"reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/entity"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
 
 	gormtrm "github.com/avito-tech/go-transaction-manager/drivers/gorm/v2"
 )

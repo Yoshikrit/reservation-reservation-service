@@ -2,10 +2,10 @@ package confirmedreservation
 
 import (
 	"context"
-	"reservation/internal/pkg/json"
+	"github.com/Yoshikrit/reservation/internal/pkg/json"
 
-	"reservation/internal/entity"
-	kafkapkg "reservation/internal/gateway/kafka"
+	"github.com/Yoshikrit/reservation/internal/entity"
+	kafkapkg "github.com/Yoshikrit/reservation/internal/gateway/kafka"
 )
 
 type ConfirmedReservationEvent struct {

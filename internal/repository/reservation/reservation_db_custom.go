@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 
-	"reservation/internal/entity"
-	"reservation/internal/pkg/apperror"
-	"reservation/internal/service/constant"
+	"github.com/Yoshikrit/reservation/internal/entity"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
+	"github.com/Yoshikrit/reservation/internal/service/constant"
 
 	gormtrm "github.com/avito-tech/go-transaction-manager/drivers/gorm/v2"
 	"gorm.io/gorm"

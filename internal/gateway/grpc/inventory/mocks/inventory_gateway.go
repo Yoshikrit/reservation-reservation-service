@@ -3,8 +3,8 @@ package mocks
 import (
 	"context"
 
-	inventoryGateway "reservation/internal/gateway/grpc/inventory"
-	"reservation/internal/pkg/apperror"
+	inventoryGateway "github.com/Yoshikrit/reservation/internal/gateway/grpc/inventory"
+	"github.com/Yoshikrit/reservation/internal/pkg/apperror"
 
 	"github.com/stretchr/testify/mock"
 )
