@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reservation-api
+  namespace: reservation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reservation-api
+  template:
+    metadata:
+      labels:
+        app: reservation-api
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: api
+          image: reservation:latest
+          imagePullPolicy: IfNotPresent
+          command: ["./api"]
+          ports:
+            - containerPort: 8081
+          envFrom:
+            - configMapRef:
+                name: reservation-config
+            - secretRef:
+                name: reservation-secret
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+              ephemeral-storage: 50Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+              ephemeral-storage: 100Mi
+          livenessProbe:
+            httpGet:
+              path: /livez
+              port: 8081
+            initialDelaySeconds: 5
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 8081
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reservation-api
+  namespace: reservation
+spec:
+  type: NodePort
+  selector:
+    app: reservation-api
+  ports:
+    - port: 8081
+      targetPort: 8081
+      nodePort: 30081

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reservation-event
+  namespace: reservation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reservation-event
+  template:
+    metadata:
+      labels:
+        app: reservation-event
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: event
+          image: reservation:latest
+          imagePullPolicy: IfNotPresent
+          command: ["./event"]
+          envFrom:
+            - configMapRef:
+                name: reservation-config
+            - secretRef:
+                name: reservation-secret
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+              ephemeral-storage: 50Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+              ephemeral-storage: 100Mi

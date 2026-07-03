@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: reservation-config
+  namespace: reservation
+data:
+  REST_PORT: "8081"
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+  # Cross-namespace: reservation publishes to inventory's Kafka so inventory-consumer can receive it
+  KAFKA_BROKERS: "kafka.inventory.svc.cluster.local:9092"
+  KAFKA_TOPIC_CONFIRMED_RESERVATION: "reservation-confirmed"
+  # Cross-namespace: calls inventory gRPC service
+  INVENTORY_GRPC_ADDRESS: "inventory-grpc.inventory.svc.cluster.local:50051"
