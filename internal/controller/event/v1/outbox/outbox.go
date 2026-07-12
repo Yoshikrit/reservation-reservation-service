@@ -7,7 +7,11 @@ import (
 	outboxRepo "github.com/Yoshikrit/reservation/internal/repository/outbox"
 
 	"github.com/rs/zerolog/log"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/propagation"
 )
+
+var tracer = otel.Tracer("outbox.relay")
 
 type handler struct {
 	repo     outboxRepo.OutboxRepository
@@ -26,11 +30,20 @@ func (h *handler) Process(ctx context.Context) {
 	}
 
 	for _, rec := range records {
+		recCtx, span := tracer.Start(ctx, "outbox.relay "+rec.Topic)
+
 		headers := map[string]string{}
 		if rec.CreatedByTraceID != "" {
 			headers["X-Request-ID"] = rec.CreatedByTraceID
 		}
-		if pubErr := h.producer.Publish(ctx, rec.Topic, rec.EventID, []byte(rec.Payload), headers); pubErr != nil {
+		carrier := propagation.MapCarrier{}
+		otel.GetTextMapPropagator().Inject(recCtx, carrier)
+		for k, v := range carrier {
+			headers[k] = v
+		}
+
+		if pubErr := h.producer.Publish(recCtx, rec.Topic, rec.EventID, []byte(rec.Payload), headers); pubErr != nil {
+			span.End()
 			if incrErr := h.repo.IncrRetryCount(ctx, rec.EventID); incrErr != nil {
 				log.Error().Err(incrErr).Str("event_id", rec.EventID).Msg("outbox: failed to increment retry_count")
 			}
@@ -55,6 +68,7 @@ func (h *handler) Process(ctx context.Context) {
 			continue
 		}
 
+		span.End()
 		log.Info().Str("event_id", rec.EventID).Str("topic", rec.Topic).Msg("outbox: event published")
 		if statusErr := h.repo.UpdateStatus(ctx, rec.EventID, outboxRepo.StatusPublished); statusErr != nil {
 			log.Error().Err(statusErr).Str("event_id", rec.EventID).Msg("outbox: failed to mark event as published")

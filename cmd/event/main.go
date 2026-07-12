@@ -10,6 +10,7 @@ import (
 	"github.com/Yoshikrit/reservation/config"
 	"github.com/Yoshikrit/reservation/internal/controller/event"
 	"github.com/Yoshikrit/reservation/internal/pkg/logger"
+	"github.com/Yoshikrit/reservation/internal/pkg/telemetry"
 )
 
 func main() {
@@ -33,6 +34,13 @@ func main() {
 	producer := config.InitKafkaProducer(cfg.KafkaConfig)
 	if producer != nil {
 		defer producer.Close()
+	}
+
+	shutdown, err := telemetry.Init(context.Background(), cfg.TelemetryConfig.OtelServiceName, cfg.TelemetryConfig.OtelEndpoint)
+	if err != nil {
+		log.Warn().Err(err).Msg("reservation-event: telemetry init failed, continuing without tracing")
+	} else {
+		defer shutdown(context.Background())
 	}
 
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
