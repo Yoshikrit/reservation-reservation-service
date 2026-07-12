@@ -5,6 +5,7 @@ import (
 	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/helmet"
 	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/logger"
 	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/metrics"
+	otelMiddleware "github.com/Yoshikrit/reservation/internal/controller/rest/middleware/otel"
 	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/recover"
 	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/responsetime"
 	"github.com/Yoshikrit/reservation/internal/controller/rest/middleware/trace"
@@ -20,6 +21,7 @@ func NewMiddleware() []fiber.Handler {
 		responsetime.ResponseTime(),
 		helmet.Helmet(),
 		trace.Trace(),
+		otelMiddleware.Trace(),
 		metrics.Metrics(),
 	}
 }

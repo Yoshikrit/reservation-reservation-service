@@ -12,6 +12,7 @@ import (
 	"github.com/Yoshikrit/reservation/config"
 	"github.com/Yoshikrit/reservation/internal/controller/rest"
 	"github.com/Yoshikrit/reservation/internal/pkg/logger"
+	"github.com/Yoshikrit/reservation/internal/pkg/telemetry"
 )
 
 func main() {
@@ -41,6 +42,13 @@ func main() {
 		log.Fatal().Err(err).Msg("reservation-api: failed to connect gRPC services")
 	}
 	defer grpcConns.Close()
+
+	telemShutdown, err := telemetry.Init(context.Background(), cfg.TelemetryConfig.OtelServiceName, cfg.TelemetryConfig.OtelEndpoint)
+	if err != nil {
+		log.Warn().Err(err).Msg("reservation-api: telemetry init failed, continuing without tracing")
+	} else {
+		defer telemShutdown(context.Background())
+	}
 
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
