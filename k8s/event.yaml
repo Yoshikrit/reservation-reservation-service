@@ -19,7 +19,7 @@ spec:
       containers:
         - name: event
           image: ghcr.io/yoshikrit/reservation:1
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           command: ["./event"]
           env:
             - name: OTEL_SERVICE_NAME
