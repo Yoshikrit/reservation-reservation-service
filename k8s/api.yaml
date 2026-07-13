@@ -14,13 +14,18 @@ spec:
         app: reservation-api
     spec:
       automountServiceAccountToken: false
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: api
-          image: reservation:latest
-          imagePullPolicy: IfNotPresent
+          image: ghcr.io/yoshikrit/reservation-reservation-service:1
+          imagePullPolicy: Always
           command: ["./api"]
           ports:
             - containerPort: 8081
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: "reservation-api"
           envFrom:
             - configMapRef:
                 name: reservation-config

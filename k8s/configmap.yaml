@@ -12,3 +12,4 @@ data:
   KAFKA_TOPIC_CONFIRMED_RESERVATION: "reservation-confirmed"
   # Cross-namespace: calls inventory gRPC service
   INVENTORY_GRPC_ADDRESS: "inventory-grpc.inventory.svc.cluster.local:50051"
+  OTEL_ENDPOINT: "tempo.monitoring.svc.cluster.local:4317"

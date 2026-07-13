@@ -14,11 +14,16 @@ spec:
         app: reservation-event
     spec:
       automountServiceAccountToken: false
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: event
-          image: reservation:latest
-          imagePullPolicy: IfNotPresent
+          image: ghcr.io/yoshikrit/reservation-reservation-service:1
+          imagePullPolicy: Always
           command: ["./event"]
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: "reservation-event"
           envFrom:
             - configMapRef:
                 name: reservation-config
