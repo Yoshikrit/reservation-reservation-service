@@ -5,11 +5,9 @@ metadata:
   namespace: reservation
 data:
   REST_PORT: "8081"
-  REDIS_HOST: "redis"
+  REDIS_HOST: "redis.infra.svc.cluster.local"
   REDIS_PORT: "6379"
-  # Cross-namespace: reservation publishes to inventory's Kafka so inventory-consumer can receive it
-  KAFKA_BROKERS: "kafka.inventory.svc.cluster.local:9092"
+  KAFKA_BROKERS: "kafka.infra.svc.cluster.local:9092"
   KAFKA_TOPIC_CONFIRMED_RESERVATION: "reservation-confirmed"
-  # Cross-namespace: calls inventory gRPC service
   INVENTORY_GRPC_ADDRESS: "inventory-grpc.inventory.svc.cluster.local:50051"
   OTEL_ENDPOINT: "tempo.monitoring.svc.cluster.local:4317"
