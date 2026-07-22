@@ -59,10 +59,9 @@ metadata:
   name: reservation-api
   namespace: reservation
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: reservation-api
   ports:
     - port: 8081
       targetPort: 8081
-      nodePort: 30081

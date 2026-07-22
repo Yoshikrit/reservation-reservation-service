@@ -38,3 +38,5 @@ spec:
               cpu: 100m
               memory: 64Mi
               ephemeral-storage: 100Mi
+          # No probe: outbox relay exposes no port. k8s restarts on process exit.
+          # To add a real liveness probe, expose a /livez HTTP port from the event process.
